@@ -1,0 +1,34 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+    // Write C++ code here
+    int row,col;
+    cout<<"Enter rows : ";cin>>row;
+    cout<<"Enter col : ";cin>>col;
+    
+    int **arr = new int*[row];
+    for(int i=0;i<row;i++){
+         arr[i]=new int[col];
+    }
+    // enter data using nested for loop in 2D array
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            cin>>arr[i][j];
+        }
+    }
+    //display 
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            cout<<"arr["<<i<<"]"<<"["<<j<<"]"<<"="<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    // deallocate
+    for(int i=0;i<row;i++){
+      delete [] arr[i];
+    }
+    delete[] arr;
+    cout<<"succesfully deallocating our dynamic memory";
+    return 0;
+}
